@@ -9,20 +9,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch renders
         run: |
-          mkdir -p _tmp/logos
+          mkdir -p _tmp/photos
           base="https://d8j0ntlcm91z4.cloudfront.net/user_3EI4gPQXbCIDkEZJNju9hERMEXZ"
-          curl -fsSo _tmp/logos/orig-0.png "$base/hf_20260821_083535_64093dfb-3331-428c-974f-816ca3bfc084.png"
-          curl -fsSo _tmp/logos/orig-1.png "$base/hf_20260821_083535_a6a8446a-f1c1-4bbf-94f4-0adb375e98d3.png"
-          curl -fsSo _tmp/logos/orig-2.png "$base/hf_20260821_083535_78bffc52-d7bc-471d-a435-ec984a7443b0.png"
-          curl -fsSo _tmp/logos/orig-3.png "$base/hf_20260821_083535_849fbc4d-f077-484f-b43f-3251ae4aa775.png"
-          curl -fsSo _tmp/logos/cut-0.png "$base/hf_20260821_083723_58380e2b-ba2a-426d-9ea8-4378fc54b6b7.png"
-          curl -fsSo _tmp/logos/cut-1.png "$base/hf_20260821_083724_5c837287-6909-4f02-a71a-6c69aabcedc1.png"
-          curl -fsSo _tmp/logos/cut-2.png "$base/hf_20260821_083725_383ab976-fa5c-4a84-a2e1-9a3901080a44.png"
-          curl -fsSo _tmp/logos/cut-3.png "$base/hf_20260821_083727_119bbb79-68ce-479d-a6cf-e8c03155b455.png"
+          curl -fsSo _tmp/photos/rooftop.png "$base/hf_20260821_084048_637fdc2a-a3a1-43e8-aba7-842d450253a6.png"
+          curl -fsSo _tmp/photos/battery.png "$base/hf_20260821_084048_0ff6ee55-2472-4bde-904e-f6858cfeb1cc.png"
+          curl -fsSo _tmp/photos/install.png "$base/hf_20260821_084048_4c5e2122-2130-4e48-9b48-f09c93de2e68.png"
       - name: Commit
         run: |
           git config user.name "asset-fetch"
           git config user.email "actions@github.com"
           git add _tmp
-          git commit -m "temp: logo render candidates"
+          git commit -m "temp: photo renders"
           git push
