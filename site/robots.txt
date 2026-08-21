@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://daylightsolar.ai
+Sitemap: https://daylightsolar.ai/sitemap.xml
