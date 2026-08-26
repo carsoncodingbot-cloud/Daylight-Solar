@@ -1,0 +1,22 @@
+name: fetch-assets
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch renders
+        run: |
+          mkdir -p _tmp/storm
+          base="https://d8j0ntlcm91z4.cloudfront.net/user_3EI4gPQXbCIDkEZJNju9hERMEXZ"
+          curl -fsSo _tmp/storm/garage-real.png "$base/hf_20260826_151753_e360619e-58b0-4537-a2a2-7ded6231d93e.png"
+          curl -fsSo _tmp/storm/storm-house.png "$base/hf_20260826_151753_14b40599-03c4-4108-8bee-7f12968ad207.png"
+      - name: Commit
+        run: |
+          git config user.name "asset-fetch"
+          git config user.email "actions@github.com"
+          git add _tmp
+          git commit -m "temp: storm post renders"
+          git push
